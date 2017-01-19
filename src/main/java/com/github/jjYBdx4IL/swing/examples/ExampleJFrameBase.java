@@ -1,12 +1,16 @@
 package com.github.jjYBdx4IL.swing.examples;
 
+import java.awt.GraphicsEnvironment;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import org.junit.After;
+import org.junit.Assume;
 import org.junit.Before;
+import org.junit.BeforeClass;
 
 /**
  *
@@ -19,6 +23,11 @@ public class ExampleJFrameBase {
     JButton b2 = new JButton("Button 2");
     JButton b3 = new JButton("Button 3");
     JLabel l1 = new JLabel("Label 1");
+
+    @BeforeClass
+    public static void beforeClass() {
+        Assume.assumeFalse(GraphicsEnvironment.isHeadless());
+    }
 
     @Before
     public void createExampleJFrame() {
